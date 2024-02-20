@@ -13,8 +13,8 @@ const server = http.createServer((req, res) => {
   // コンソールのネットワークでリロードするとlocalhost→ヘッダーをクリックすると確認できる
 
   // HTMLを表示する
-  res.setHeader('Content-Type', 'text/html');
-  // res.write('<h1>Title</h1>');
+  // res.setHeader('Content-Type', 'text/html');
+  // res.write('<h1>test</h1>');
   // res.end();
 
   // fsをインポートして表示する(CSSが使えるようになる)
@@ -23,10 +23,10 @@ const server = http.createServer((req, res) => {
       console.log(err);
       res.end();
     } else {
-      // res.write(data);
-      // res.end();
+      res.write(data);
+      res.end();
       // これでもOK
-      res.end(data);
+      // res.end(data);
     }
   });
 });

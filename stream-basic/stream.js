@@ -10,7 +10,7 @@ const write = fs.createWriteStream('./stream-basic/example1.txt');
 
 read.on('data', (chunk) => {
   // 10万文字を超える文章を小さく区切って送るようになる
-  console.log('----');
+  // console.log('----');
   console.log(chunk);
   // エンコードを指定するとtoStringはなくてもOK
   // console.log(chunk.toString());
