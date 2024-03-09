@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/blogs/create">New</a></li>
+      </ul>
+    </nav>
+    <% const test="テスト" %>
+    <!--phpでいうechoが＝になっている-->
+    <%= test %>
+    <h1>Home</h1>
+
+    <% if(blogs.length > 0){ %>
+        <% blogs.forEach(blog => { %>
+          <h2><%= blog.title %></h2>
+          <p><%= blog.content %></p>
+        <% }) %>
+    <% } else { %>
+        <p>投稿はありません</p>
+    <% } %>
+  </body>
+</html>
