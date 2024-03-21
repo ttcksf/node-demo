@@ -10,6 +10,9 @@ app.set('view engine', 'ejs');
 
 app.listen(3000);
 
+// headタグにstyleタグでCSSは書かなくて良くなる
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
   const blogs = [
     { title: 'title1', content: 'content1' },
@@ -22,6 +25,13 @@ app.get('/', (req, res) => {
   });
 });
 // nodemon server
+
+// オリジナルのミドルウェア(アバウトページをクリックしたとき)
+// 原則として次の処理に行っても問題ないかは宣言しないといけない
+// app.use((req, res, next) => {
+//   console.log('オリジナルのmiddlewareを作成しました');
+//   next();
+// });
 
 app.get('/about', (req, res) => {
   res.render('about', {
