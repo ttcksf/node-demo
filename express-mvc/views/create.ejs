@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/blogs/create">New</a></li>
+      </ul>
+    </nav>
+    <h1>Home</h1>
+    <form action="/" method="POST">
+      <label for="title">タイトル:</label>
+      <input type="text" id="title" name="title" required>
+      <label for="body">本文:</label>
+      <textarea id="content" name="content" required></textarea>
+      <button>送信</button>
+    </form>
+
+  </body>
+</html>
