@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/blogs/create">New</a></li>
+      </ul>
+    </nav>
+    <h1>ブログ詳細ページ</h1>
+    <h3><%= blog.title %></h3>
+    <p><%= blog.content %></p>
+    <button data-doc="<%= blog._id %>">削除</button>
+
+    <!-- formタグを使うもの処理ではないため、ブラウザからのデータの送信や画面遷移がデフォルトでついていない。formタグはブラウザがHTTP通信で自動的に送ってくれて画面遷移してくれるのでJSでコードを書かなくてもOKだった。 -->
+
+    <!-- res.jsonではserver.jsからredirectのパスを受け取っている -->
+    <script>
+      const deleteItem = document.querySelector("button");
+
+      deleteItem.addEventListener("click", (e) => {
+        const endpoint = `/about/${deleteItem.dataset.doc}`;
+
+        fetch(endpoint, {
+          method: "DELETE",
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          window.location.href = data.redirect;
+        })
+        .catch((err) => console.log(err));
+      })
+    </script>
+  </body>
+</html>

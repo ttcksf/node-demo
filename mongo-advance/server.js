@@ -24,7 +24,7 @@ app.get('/create', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  // console.log(res.body);
+  // console.log(req.body);
   const blog = new Blog(req.body);
 
   blog
@@ -49,6 +49,7 @@ app.get('/', (req, res) => {
 // -----------------------------------------
 
 app.get('/about/:id', (req, res) => {
+  console.log(req.params.id);
   // paramsのプロパティはURLのスラッグ名になる
   const blogId = req.params.id;
   // console.log(blogId);
